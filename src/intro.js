@@ -30,3 +30,10 @@ export function reverseString(string) {
 }
 
 export const API_URL = `https://api.user.com`
+
+export const languages = ["JavaScript", "TypeScript", "Java"];
+
+export const user = {
+  name: "Hanish",
+  age: 19
+}

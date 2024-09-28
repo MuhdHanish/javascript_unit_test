@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { API_URL, calculateAverage, factorial, fizzBuzz, max, reverseString } from "../src/intro";
+import { API_URL, calculateAverage, factorial, fizzBuzz, languages, max, reverseString, user } from "../src/intro";
 
 describe("max", () => {
     it("should return the first argument if it is greater", () => {
@@ -76,5 +76,21 @@ describe("reverseString", () => {
 describe("API_URL", () => { 
     it("API_URL is correct", () => { 
         expect(API_URL).toBe("https://api.user.com");
+    });
+});
+
+describe("languages", () => { 
+    it("should contain the 'TypeScript' in languages array", () => { 
+        expect(languages).toContain("TypeScript");
+    });
+});
+
+describe("user", () => { 
+    it("should contain 'name' and 'age' keys user object", () => { 
+        expect(user).toHaveProperty("name");
+        expect(user).toHaveProperty("age");
+    });
+    it("type of 'age' in user object must be number", () => {
+        expect(typeof user.age).toBe("number");
     });
 });
