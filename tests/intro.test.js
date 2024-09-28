@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { calculateAverage, factorial, fizzBuzz, max } from "../src/intro";
+import { calculateAverage, factorial, fizzBuzz, max, reverseString } from "../src/intro";
 
 describe("max", () => {
     it("should return the first argument if it is greater", () => {
@@ -58,5 +58,17 @@ describe("factorial", () => {
     });
     it("should return undifined if given negative number", () => {
         expect(factorial(-1)).toBeUndefined();
+    });
+});
+
+describe("reverseString", () => { 
+    it("should return empty string if argument is empty", () => { 
+        expect(reverseString("")).toBe("");
+    });
+    it("should return 'olleH'  if argument is 'Hello'", () => {
+        expect(reverseString("Hello")).toBe("olleH");
+    });
+    it("should return undifined  if argument is not a string", () => {
+        expect(reverseString(0)).toBeUndefined();
     });
 });
