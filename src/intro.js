@@ -13,6 +13,12 @@ export function fizzBuzz(n) {
 
 export function calculateAverage(numbers) {
   return numbers.length
-    ?  numbers?.reduce((acc, element) => acc + element, 0) / numbers.length
+    ? numbers?.reduce((acc, element) => acc + element, 0) / numbers.length
     : NaN;
+}
+
+export function factorial(number) {
+  if (number < 0) return undefined;
+  if (number === 0 || number === 1) return 1;
+  return number * factorial(number - 1);
 }
