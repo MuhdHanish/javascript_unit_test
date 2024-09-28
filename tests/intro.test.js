@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { calculateAverage, factorial, fizzBuzz, max, reverseString } from "../src/intro";
+import { API_URL, calculateAverage, factorial, fizzBuzz, max, reverseString } from "../src/intro";
 
 describe("max", () => {
     it("should return the first argument if it is greater", () => {
@@ -70,5 +70,11 @@ describe("reverseString", () => {
     });
     it("should return undifined  if argument is not a string", () => {
         expect(reverseString(0)).toBeUndefined();
+    });
+});
+
+describe("API_URL", () => { 
+    it("API_URL is correct", () => { 
+        expect(API_URL).toBe("https://api.user.com");
     });
 });

@@ -28,3 +28,5 @@ export function reverseString(string) {
     ? string.split("").reverse().join("")
     : undefined;
 }
+
+export const API_URL = `https://api.user.com`
