@@ -10,3 +10,9 @@ export function fizzBuzz(n) {
   if (n % 5 === 0) return 'Buzz';
   return n.toString();
 }
+
+export function calculateAverage(numbers) {
+  return numbers.length
+    ?  numbers?.reduce((acc, element) => acc + element, 0) / numbers.length
+    : NaN;
+}
