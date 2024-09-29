@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { API_URL, calculateAverage, factorial, fetchTodos, fizzBuzz, languages, max, reverseString, user } from "../src/intro";
+import { API_URL, calculateAverage, factorial, fetchTodos, fizzBuzz, isAuthenticated, languages, max, reverseString, user } from "../src/intro";
 
 describe("max", () => {
     it("should return the first argument if it is greater", () => {
@@ -61,8 +61,8 @@ describe("factorial", () => {
     });
 });
 
-describe("reverseString", () => { 
-    it("should return empty string if argument is empty", () => { 
+describe("reverseString", () => {
+    it("should return empty string if argument is empty", () => {
         expect(reverseString("")).toBe("");
     });
     it("should return 'olleH'  if argument is 'Hello'", () => {
@@ -73,20 +73,20 @@ describe("reverseString", () => {
     });
 });
 
-describe("API_URL", () => { 
-    it("API_URL is correct", () => { 
+describe("API_URL", () => {
+    it("API_URL is correct", () => {
         expect(API_URL).toBe("https://api.user.com");
     });
 });
 
-describe("languages", () => { 
-    it("should contain the 'TypeScript' in languages array", () => { 
+describe("languages", () => {
+    it("should contain the 'TypeScript' in languages array", () => {
         expect(languages).toContain("TypeScript");
     });
 });
 
-describe("user", () => { 
-    it("should contain 'name' and 'age' keys user object", () => { 
+describe("user", () => {
+    it("should contain 'name' and 'age' keys user object", () => {
         expect(user).toHaveProperty("name");
         expect(user).toHaveProperty("age");
     });
@@ -108,5 +108,17 @@ describe('fectchTodos', () => {
                 completed: expect.any(Boolean)
             })
         )
+    });
+});
+
+describe("isAuthenticated", () => {
+    it("should return a truthy value", () => {
+        expect(isAuthenticated(true)).toBeTruthy();
+    });
+    it("should return welcome message if use autheticated", () => {
+        expect(isAuthenticated(true)).toBe(`Welcome ${user.name}`)
+    });
+    it("should throw error if user not authenticated", () => {
+        expect(() => isAuthenticated(false)).toThrow()
     });
 });

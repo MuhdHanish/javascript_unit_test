@@ -49,3 +49,10 @@ export async function fetchTodos() {
     throw error;
   }
 }
+
+export function isAuthenticated(authenticated = false) {
+  if (authenticated) {
+    return `Welcome ${user.name}`;
+  }
+  throw new Error(`User not authenticated`);
+}
