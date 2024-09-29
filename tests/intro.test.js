@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { API_URL, calculateAverage, factorial, fizzBuzz, languages, max, reverseString, user } from "../src/intro";
+import { API_URL, calculateAverage, factorial, fetchTodos, fizzBuzz, languages, max, reverseString, user } from "../src/intro";
 
 describe("max", () => {
     it("should return the first argument if it is greater", () => {
@@ -92,5 +92,21 @@ describe("user", () => {
     });
     it("type of 'age' in user object must be number", () => {
         expect(typeof user.age).toBe("number");
+    });
+});
+
+describe('fectchTodos', () => {
+    it("should return a non-empty array of todos with the correct structure for the first item", async () => {
+        const todos = await fetchTodos();
+        expect(Array.isArray(todos)).toBeTruthy();
+        expect(todos.length).toBeGreaterThan(0);
+        expect(todos[0]).toEqual(
+            expect.objectContaining({
+                userId: expect.any(Number),
+                id: expect.any(Number),
+                title: expect.any(String),
+                completed: expect.any(Boolean)
+            })
+        )
     });
 });

@@ -37,3 +37,15 @@ export const user = {
   name: "Hanish",
   age: 19
 }
+
+export async function fetchTodos() {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/todos`);
+    if (!response.ok) {
+      throw new Error(`Request failed status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    throw error;
+  }
+}
